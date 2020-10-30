@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liufan.blog.mapper.TypeMapper">
+
+    <select id="findAll" resultType="com.liufan.blog.po.Type">
+        select id,name from t_type
+    </select>
+
+</mapper>

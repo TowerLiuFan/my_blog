@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liufan.blog.mapper.BlogMapper">
+
+    <select id="findAll" resultType="com.liufan.blog.po.Blog">
+    SELECT
+            b.id,
+            b.admiretion,
+            b.commentabled,
+            b.content,
+            b.create_time AS createTime,
+            b.first_picture AS firstPicture,
+            b.flag,
+            b.publish,
+            b.recommend,
+            b.share_statement AS shareStatement,
+            b.title,
+            b.update_time AS updateTime,
+            b.views,
+            b.type_id AS typeId,
+            b.user_id AS userId,
+            b.description,
+            b.appreciation,
+            b.published,
+            b.css_type AS cssType,
+          t.name	 as typeName
+    FROM
+        t_blog b
+        left join t_type t
+        on b.type_id = t.id
+      /* where  published = '1' */
+        order by update_time desc
+    </select>
+
+    <select id="getOne" resultType="com.liufan.blog.po.Blog">
+    SELECT
+            b.id,
+            b.admiretion,
+            b.commentabled,
+            b.content,
+            b.create_time AS createTime,
+            b.first_picture AS firstPicture,
+            b.flag,
+            b.publish,
+            b.recommend,
+            b.share_statement AS shareStatement,
+            b.title,
+            b.update_time AS updateTime,
+            b.views,
+            b.type_id AS typeId,
+            b.user_id AS userId,
+            b.description,
+            b.appreciation,
+            b.published,
+            b.css_type AS cssType,
+          t.name	 as typeName
+    FROM
+        t_blog b
+        left join t_type t
+        on b.type_id = t.id
+        where b.id = #{id}
+
+    </select>
+
+</mapper>
